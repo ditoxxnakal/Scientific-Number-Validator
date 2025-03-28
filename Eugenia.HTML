@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #ffff;
+            color: #333;
+        }
+        h2 {
+            color: #ffc0cb;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            border: 2px solid #ffc0cb;
+            border-radius: 5px;
+            background-color: #ffff;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #ffc0cb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scientific Number Checker</h2>
+    <input type="text" id="inputNumber" placeholder="Enter a number">
+    <button onclick="checkNumber()">Check</button>
+    <p id="message"></p>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById("inputNumber").value.trim();
+            const scientificNumberPattern = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+            
+            const messageElement = document.getElementById("message");
+            if (scientificNumberPattern.test(input)) {
+                messageElement.innerText = "Yes, it is a number";
+                messageElement.style.color = "green";
+            } else {
+                messageElement.innerText = "No, it is not a number";
+                messageElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
